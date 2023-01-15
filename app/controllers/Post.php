@@ -5,14 +5,18 @@ class Post extends Controller{
   {
     $data['judul'] = 'Artikel';
     $data['artikel'] = $this->model('PostModel')->getAllArtikel();
-    $this->view('template/header', $data);
+    $this->view('template/headerPost', $data);
     $this->view('post/index', $data);
     $this->view('template/footer');
   }
-
+  
   public function detail($id)
   {
+    $data['judul'] = 'Detail Artikel';
     $data['id'] = $id;
+    $data['artikel'] = $this->model('PostModel')->getArtikelById($id);
+    $this->view('template/headerPost', $data);
     $this->view('post/detail', $data);
+    $this->view('template/footer', $data);
   }
 }
