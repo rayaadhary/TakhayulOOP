@@ -1,5 +1,7 @@
 <?php
-    include_once "koneksi.php";
+  include_once "koneksi.php";
+    $db = new Koneksi();
+    $db = $db->__construct();
 ?>
 <!DOCTYPE html>
 <html>

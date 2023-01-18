@@ -21,5 +21,6 @@ Copyright &copy;<script >document.write(new Date().getFullYear());</script></div
 <script src="<?= BASEURL;?>/js/custom.js"></script>
 <script src="<?= BASEURL;?>/plugins/parallax-js-master/parallax.min.js"></script>
 <script src="<?= BASEURL;?>/plugins/progressbar/progressbar.min.js"></script>
+<!-- <script src="<?= BASEURL;?>/js/course.js"></script> -->
 </body>
 </html>

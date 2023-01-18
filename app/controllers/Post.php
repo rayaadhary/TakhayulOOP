@@ -7,7 +7,7 @@ class Post extends Controller{
     $data['artikel'] = $this->model('PostModel')->getAllArtikel();
     $this->view('template/headerPost', $data);
     $this->view('post/index', $data);
-    $this->view('template/footer');
+    $this->view('template/footerPost');
   }
   
   public function detail($id)
@@ -17,6 +17,6 @@ class Post extends Controller{
     $data['artikel'] = $this->model('PostModel')->getArtikelById($id);
     $this->view('template/headerPost', $data);
     $this->view('post/detail', $data);
-    $this->view('template/footer', $data);
+    $this->view('template/footerPost', $data);
   }
 }

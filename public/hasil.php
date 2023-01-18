@@ -10,6 +10,8 @@
   	<h1>Hasil Kuis Anda</h1>
 <?php
 include_once "koneksi.php";
+$db = new Koneksi();
+$db = $db->__construct();
 if (empty($_POST['jawaban']) === false) {
     $html = '<ol>';
     $totalSkor = 0;
