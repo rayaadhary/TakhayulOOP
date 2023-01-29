@@ -19,4 +19,13 @@ class Post extends Controller{
     $this->view('post/detail', $data);
     $this->view('template/footerPost', $data);
   }
+
+  public function tambah()
+  {
+    if($this->model('PostModel')->tambahDataArikel($_POST) > 0)
+    {
+      header('Location: '.BASEURL.'/post');
+      exit;
+    }
+  }
 }

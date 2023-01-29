@@ -24,4 +24,14 @@ class PostModel
         $data = $this->db->single();
         return $data;
     }
+
+    public function tambahDataArtikel($data)
+    {
+        $query = "INSERT INTO post VALUES ('', :judul, :deskripsi)";
+        $this->db->query($query);
+        $this->db->bind('judul', $data['judul']);
+        $this->db->bind('deskripsi', $data['deskripsi']);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
 }

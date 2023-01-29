@@ -54,6 +54,9 @@
 					<h2 class="section_title text-center">Artikel mengenai Takhayul</h2>
 				</div>
 			</div>
+			<div class="text-start">
+				<a href="<?=BASEURL?>/post/tambah" class="btn btn-primary">Tambah Artikel</a>
+			</div>
 			<div class="row courses_row">
 
 			
