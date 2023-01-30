@@ -6,9 +6,9 @@ class Post extends Controller
   {
     $data['judul'] = 'Artikel';
     $data['artikel'] = $this->model('PostModel')->getAllArtikel();
-    $this->view('template/headerPost', $data);
+    $this->view('template/header', $data);
     $this->view('post/index', $data);
-    $this->view('template/footerPost');
+    $this->view('template/footer');
   }
 
   public function detail($id)
@@ -31,9 +31,9 @@ class Post extends Controller
 
   public function tambah()
   {
-    if ($this->model('PostModel')->tambahDataArtikel($_POST) > 0) {
-      header('Location: ' . BASEURL . '/post');
-      exit;
-    }
+    // if ($this->model('PostModel')->tambahDataArikel($_POST) > 0) {
+    //   header('Location: ' . BASEURL . '/post');
+    //   exit;
+    // }
   }
 }
