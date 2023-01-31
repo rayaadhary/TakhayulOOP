@@ -2,7 +2,7 @@
 	<!-- Intro -->
 
 	<div class="intro">
-		<div class="intro_background parallax-window" data-parallax="scroll" data-image-src="http://localhost/quiz/public/images/intro.jpg" data-speed="0.8"></div>
+		<div class="intro_background parallax-window" data-parallax="scroll" data-image-src="<?= BASEURL ?>/images/intro.jpg" data-speed="0.8"></div>
 		<div class="container">
 			<div class="row">
 				<div class="col">

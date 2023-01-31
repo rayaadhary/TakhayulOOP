@@ -16,6 +16,8 @@
     <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/responsive.css">
     <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/course.css">
     <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/course_responsive.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/contact.css">
+    <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/contact_responsive.css">
 </head>
 
 <body>
