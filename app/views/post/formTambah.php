@@ -53,10 +53,7 @@
                   <textarea class="form-control" name="deskripsi" id="artikel" placeholder="isi dengan artikel" rows="8"></textarea>
                 </div>
                 <div class="form-group">
-                  <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile">
-                    <label class="custom-file-label" for="customFile">Choose file</label>
-                  </div>
+                  <input type="file" name="gambar" id="">
                 </div>
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Kirim</button>
