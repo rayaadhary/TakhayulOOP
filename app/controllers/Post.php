@@ -32,10 +32,13 @@ class Post extends Controller
   public function tambah()
   {
     if ($this->model('PostModel')->tambahDataArtikel($_POST) > 0) {
+      Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+      header('Location: ' . BASEURL . '/post');
+      exit;
+    } else {
+      Flasher::setFlash('gagal', 'ditambahkan', 'danger');
       header('Location: ' . BASEURL . '/post');
       exit;
     }
-    // var_dump($_POST);
-    // print_r($_FILES);
   }
 }

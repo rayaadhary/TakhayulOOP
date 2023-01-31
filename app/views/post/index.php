@@ -1,4 +1,9 @@
 <div class="super_container">
+	<div class="row">
+		<div class="col">
+			<?php Flasher::flash(); ?>
+		</div>
+	</div>
 
 	<!-- Courses -->
 	<div class="courses">
