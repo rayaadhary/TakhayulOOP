@@ -10,7 +10,7 @@
 				</div>
 			</div>
 			<div class="text-start">
-				<a href="<?= BASEURL ?>/post/tambah" class="btn btn-primary">Tambah Artikel</a>
+				<a href="<?= BASEURL ?>/post/formTambah" class="btn btn-primary">Tambah Artikel</a>
 			</div>
 			<div class="row courses_row">
 

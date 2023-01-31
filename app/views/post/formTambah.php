@@ -1,32 +1,5 @@
 <div class="super_container">
 
-  <!-- Header -->
-  <!-- Header Content -->
-
-  <!-- Header Content -->
-  <div class="header_container">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <div class="header_content d-flex flex-row align-items-center justify-content-start">
-            <div class="logo_container mr-auto">
-              <a href="<?= BASEURL; ?>">
-                <div class="logo_text">Takhayul</div>
-              </a>
-            </div>
-            <nav class="main_nav_contaner">
-              <ul class="main_nav">
-                <li><a href="<?= BASEURL; ?>">Home</a></li>
-                <li class="active"><a href="<?= BASEURL; ?>/post">Artikel</a></li>
-              </ul>
-            </nav>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Menu -->
 
   <!-- Course -->

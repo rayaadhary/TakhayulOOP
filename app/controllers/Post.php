@@ -31,9 +31,9 @@ class Post extends Controller
 
   public function tambah()
   {
-    // if ($this->model('PostModel')->tambahDataArikel($_POST) > 0) {
-    //   header('Location: ' . BASEURL . '/post');
-    //   exit;
-    // }
+    if ($this->model('PostModel')->tambahDataArtikel($_POST) > 0) {
+      header('Location: ' . BASEURL . '/post');
+      exit;
+    }
   }
 }
