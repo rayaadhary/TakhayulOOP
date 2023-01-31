@@ -32,8 +32,8 @@
                         </div>
                         <nav class="main_nav_contaner">
                             <ul class="main_nav">
-                                <li class="active"><a href="<?= BASEURL; ?>">Home</a></li>
-                                <li><a href="<?= BASEURL; ?>/post">Artikel</a></li>
+                                <li class="<?= ($data['judul'] == 'Home') ? 'active' : '' ?>"><a href="<?= BASEURL; ?>">Home</a></li>
+                                <li class="<?= ($data['judul'] == 'Artikel') ? 'active' : '' ?>"><a href="<?= BASEURL; ?>/post">Artikel</a></li>
                             </ul>
                         </nav>
                         <div class="header_content_right ml-auto text-right">
