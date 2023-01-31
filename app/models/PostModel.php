@@ -36,7 +36,7 @@ class PostModel
         $this->db->query($query);
         $this->db->bind('judul', $data['judul']);
         $this->db->bind('deskripsi', $data['deskripsi']);
-        $this->db->bind('gambar', $data['gambar']);
+        $this->db->bind('gambar', $gambar);
         $this->db->execute();
         return $this->db->rowCount();
     }
@@ -51,8 +51,8 @@ class PostModel
         // cek apakah tidak ada gambar yang diupload
         if ($error === 4) {
             echo "<script>
-                    alert('pilih gambar terlebih dahulu');
-                </script>";
+                        alert('pilih gambar terlebih dahulu');
+                    </script>";
             return false;
         }
 
@@ -62,16 +62,16 @@ class PostModel
         $ekstensiGambar = strtolower(end($ekstensiGambar));
         if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
             echo "<script>
-                    alert('yang anda upload bukan gambar');
-                </script>";
+                        alert('yang anda upload bukan gambar');
+                    </script>";
             return false;
         }
 
         // cek jika ukurannya terlalu besar
         if ($ukuranFile > 5242880) {
             echo "<script>
-                    alert('ukuran gambar terlalu besar');
-                </script>";
+                        alert('ukuran gambar terlalu besar');
+                    </script>";
             return false;
         }
 
@@ -81,7 +81,7 @@ class PostModel
         $namaFileBaru .= '.';
         $namaFileBaru .= $ekstensiGambar;
 
-        move_uploaded_file($tmpName, 'img/' . $namaFileBaru);
+        move_uploaded_file($tmpName, 'images/' . $namaFileBaru);
         return $namaFileBaru;
     }
 }
