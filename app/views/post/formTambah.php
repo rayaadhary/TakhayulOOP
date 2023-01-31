@@ -1,19 +1,17 @@
 <div class="super_container">
 
-  <!-- Menu -->
-
   <!-- Course -->
 
   <div class="course">
     <div class="container">
-      <div class="row row-lg">
+      <div class="row">
 
         <!-- Panels -->
         <div class="col">
 
           <div class="card mt-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-              <h6 class="m-0 font-weight-bold text-primary">Tambah Artikel</h6>
+              <div class="form_title ">Tambah Artikel</div>
             </div>
             <div class="card-body">
               <form action="<?= BASEURL ?>/post/tambah" method="post">
@@ -29,7 +27,7 @@
                   <input type="file" name="gambar" id="">
                 </div>
                 <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Kirim</button>
+                  <button type="submit" class="form_button trans_200">Kirim Artikel</button>
                 </div>
               </form>
             </div>
@@ -40,5 +38,3 @@
       </div>
     </div>
   </div>
-</div>
-</div>
