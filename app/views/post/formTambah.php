@@ -1,16 +1,11 @@
 <div class="super_container">
 
   <!-- Course -->
-
   <div class="course">
     <div class="container">
-
-
       <div class="row">
-
         <!-- Panels -->
         <div class="col">
-
           <div class="card mt-4">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
               <div class="form_title">Tambah Artikel</div>
@@ -44,8 +39,6 @@
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
   </div>

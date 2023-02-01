@@ -84,4 +84,26 @@ class PostModel
         move_uploaded_file($tmpName, 'images/' . $namaFileBaru);
         return $namaFileBaru;
     }
+
+    public function ubahDataArtikel($data)
+    {
+        $gambar = $this->upload();
+        if (!$gambar) {
+            return false;
+        }
+        $query = "UPDATE artikel SET judul = :judul, deskripsi = :deskripsi, gambar = :gambar WHERE id = :id";
+        $this->db->query($query);
+        $this->db->bind('judul', $data['judul']);
+        $this->db->bind('deskripsi', $data['deskripsi']);
+        $this->db->bind('gambar', $gambar);
+        $this->db->bind('id', $data['id']);
+        $this->db->execute();
+        return $this->db->rowCount();
+    }
+
+    public function hapusDataArtikel($id)
+    {
+        $this->db->query("DELETE FROM artikel WHERE id = $id");
+        return $this->db->execute();
+    }
 }

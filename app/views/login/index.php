@@ -16,7 +16,7 @@
                                     <input type="text" id="password" name="password" class="form_input" placeholder="Password" required="required" />
                                 </div>
                                 <button type="submit" name="login" class="form_button trans_200">Login</button>
-                                <a href="" class="mt-3">Lupa Password?</a>
+                                <a href="<?= BASEURL; ?>/login/lupaPassword" class="mt-3">Lupa Password?</a>
                             </div>
                         </form>
                     </div>

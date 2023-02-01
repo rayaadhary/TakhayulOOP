@@ -29,9 +29,9 @@
 				<?php
 				foreach ($data['artikel'] as $items) {
 				?>
-					<div class="col-lg-4 course_col">
+					<div class="col-lg-4 course_col mb-4">
 						<div class="course">
-							<div class="course_image"><img src="<?= BASEURL; ?>/images/course_1.jpg" alt=""></div>
+							<div class="course_image"><img src="<?= BASEURL; ?>/images/<?= $items['gambar']; ?>" alt=""></div>
 							<div class="course_body">
 								<div class="course_title"><a href="<?= BASEURL; ?>/post/detail/<?= $items['id']; ?>"><?= $items['judul']; ?></a></div>
 							</div>

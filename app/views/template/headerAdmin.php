@@ -18,7 +18,6 @@
 
 <body>
     <!-- Header -->
-
     <!-- Header Content -->
     <div class="header_container">
         <div class="container">
@@ -32,13 +31,19 @@
                         </div>
                         <nav class="main_nav_contaner">
                             <ul class="main_nav">
-                                <li class="active"><a href="<?= BASEURL; ?>">Home</a></li>
-                                <li><a href="<?= BASEURL; ?>/post">Artikel</a></li>
-                                <li><a href="">Administrator</a></li>
+                                <li class="<?= ($data['judul'] == 'Home') ? 'active' : '' ?>">
+                                    <a href="<?= BASEURL; ?>">Home</a>
+                                </li>
+                                <li class="<?= ($data['judul'] == 'Artikel') ? 'active' : '' ?>">
+                                    <a href="<?= BASEURL; ?>/post">Artikel</a>
+                                </li>
+                                <li class="<?= ($data['judul'] == 'Administrator') ? 'active' : '' ?>">
+                                    <a href="<?= BASEURL; ?>/login/admin">Administrator</a>
+                                </li>
                             </ul>
                         </nav>
-                        <div class="header_content_right ml-auto text-right">
-                            <div class="header_search">
+                        <div class="ml-auto text-right">
+                            <!-- <div class="header_search">
                                 <div class="search_form_container">
                                     <form action="#" id="search_form" class="search_form trans_400">
                                         <input type="search" class="header_search_input trans_400" placeholder="Type for Search" required="required">
@@ -47,10 +52,21 @@
                                         </div>
                                     </form>
                                 </div>
+                            </div> -->
+
+                            <div class="nav-item dropdown">
+                                <a class="nav-link" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="<?= BASEURL; ?>/images/instructor_1.jpg" alt="user" class="rounded-circle" width="40">
+                                    <span class="ml-2 d-none d-lg-inline-block text-dark"><span>Jason Doe <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-center user-dd animated">
+                                    <a class="dropdown-item log-out" href="<?= BASEURL; ?>/login">
+                                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                        Logout
+                                    </a>
+                                </div>
                             </div>
-                            <div class="user">
-                                <i class="fa fa-user" aria-hidden="true" title="Halo, Admin"></i>
-                            </div>
+
                             <div class="hamburger menu_mm">
                                 <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
                             </div>

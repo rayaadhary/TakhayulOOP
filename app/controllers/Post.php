@@ -24,7 +24,7 @@ class Post extends Controller
   public function formTambah()
   {
     $data['judul'] = 'Form Tambah';
-    $this->view('template/headerPost', $data);
+    $this->view('template/headerAdmin', $data);
     $this->view('post/formTambah', $data);
     $this->view('template/footerPost', $data);
   }
@@ -33,11 +33,47 @@ class Post extends Controller
   {
     if ($this->model('PostModel')->tambahDataArtikel($_POST) > 0) {
       Flasher::setFlash('berhasil', 'ditambahkan', 'success');
-      header('Location: ' . BASEURL . '/post');
+      header('Location: ' . BASEURL . '/login/admin');
       exit;
     } else {
       Flasher::setFlash('gagal', 'ditambahkan', 'danger');
       header('Location: ' . BASEURL . '/post');
+      exit;
+    }
+  }
+
+  public function formUbah($id)
+  {
+    $data['judul'] = 'Form Ubah';
+    $data['artikel'] = $this->model('PostModel')->getArtikelById($id);
+    $this->view('template/headerAdmin', $data);
+    $this->view('post/formUbah', $data);
+    $this->view('template/footerPost', $data);
+  }
+
+  public function ubah()
+  {
+    if ($this->model('PostModel')->ubahDataArtikel($_POST) > 0) {
+      Flasher::setFlash('berhasil', 'diubah', 'success');
+      header('Location: ' . BASEURL . '/login/admin');
+      exit;
+    } else {
+      Flasher::setFlash('gagal', 'diubah', 'danger');
+      header('Location: ' . BASEURL . '/login/admin');
+      exit;
+    }
+  }
+
+  public function hapus($id)
+  {
+    $hapus = $this->model('PostModel')->hapusDataArtikel($id);
+    if (!$hapus) {
+      Flasher::setFlash('berhasil', 'dihapus', 'success');
+      header('Location: ' . BASEURL . '/login/admin');
+      exit;
+    } else {
+      Flasher::setFlash('gagal', 'dihapus', 'danger');
+      header('Location: ' . BASEURL . '/login/admin');
       exit;
     }
   }
