@@ -14,11 +14,16 @@
     <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/main_styles.css">
     <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/responsive.css">
+    <?php if ($data['judul'] == 'Detail Artikel') {  ?>
+        <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/course.css">
+        <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/course_responsive.css">
+        <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/contact.css">
+        <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/contact_responsive.css">
+    <?php } ?>
 </head>
 
 <body>
     <!-- Header -->
-
     <!-- Header Content -->
     <div class="header_container">
         <div class="container">
@@ -32,12 +37,16 @@
                         </div>
                         <nav class="main_nav_contaner">
                             <ul class="main_nav">
-                                <li class="<?= ($data['judul'] == 'Home') ? 'active' : '' ?>"><a href="<?= BASEURL; ?>">Home</a></li>
-                                <li class="<?= ($data['judul'] == 'Artikel') ? 'active' : '' ?>"><a href="<?= BASEURL; ?>/post">Artikel</a></li>
+                                <li class="<?= ($data['judul'] == 'Home') ? 'active' : '' ?>">
+                                    <a href="<?= BASEURL; ?>">Home</a>
+                                </li>
+                                <li class="<?= ($data['judul'] == 'Artikel' || $data['judul'] == 'Detail Artikel') ? 'active' : '' ?>">
+                                    <a href="<?= BASEURL; ?>/post">Artikel</a>
+                                </li>
                             </ul>
                         </nav>
-                        <div class="header_content_right ml-auto text-right">
-                            <div class="header_search">
+                        <div class="ml-auto text-right">
+                            <!-- <div class="header_search">
                                 <div class="search_form_container">
                                     <form action="#" id="search_form" class="search_form trans_400">
                                         <input type="search" class="header_search_input trans_400" placeholder="Type for Search" required="required">
@@ -46,12 +55,26 @@
                                         </div>
                                     </form>
                                 </div>
-                            </div>
+                            </div> -->
+                            <?php if (isset($_SESSION['login'])) { ?>
+                                <div class="nav-item dropdown">
+                                    <a class="nav-link" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <!-- <img src="<?= BASEURL; ?>/images/instructor_1.jpg" alt="user" class="rounded-circle" width="40"> -->
+                                        <span class="ml-2 d-none d-lg-inline-block text-dark"><span><?= isset($_SESSION['nama']) ? $_SESSION['nama'] : ''  ?> <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+                                    </a>
+                                    <div class="dropdown-menu dropdown-menu-center user-dd animated">
+                                        <a class="dropdown-item log-out" href="<?= BASEURL; ?>/Login/logout">
+                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                            Logout
+                                        </a>
+                                    </div>
+                                </div>
+                            <?php } else { ?>
+                                <div class="user">
+                                    <a href="<?= BASEURL; ?>/login"><i class="fa fa-user" aria-hidden="true"></i></a>
+                                </div>
+                            <?php } ?>
 
-                            <!-- Hamburger -->
-                            <div class="user">
-                                <a href="<?= BASEURL; ?>/login"><i class="fa fa-user" aria-hidden="true"></i></a>
-                            </div>
                             <div class="hamburger menu_mm">
                                 <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
                             </div>

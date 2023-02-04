@@ -19,8 +19,8 @@ class Login extends Controller
         } else {
             $data['judul'] = 'Administrator';
             $data['artikel'] = $this->model('PostModel')->getAllArtikel();
-            $this->view('template/headerAdmin', $data);
-            $this->view('login/admin', $data);
+            $this->view('template/header', $data);
+            $this->view('post', $data);
             $this->view('template/footer');
         }
     }
@@ -35,7 +35,7 @@ class Login extends Controller
             session_start();
             $_SESSION['login'] = true;
             $_SESSION['nama'] = $pengguna['nama'];
-            header('Location: ' . BASEURL . '/login/admin');
+            header('Location: ' . BASEURL . '/post');
             exit;
         } else {
             Flasher::setFlash('gagal', 'login', 'danger');

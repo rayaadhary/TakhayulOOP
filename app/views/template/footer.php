@@ -28,6 +28,7 @@
 		<script src="<?= BASEURL; ?>/js/sweetalert2.all.min.js"></script>
 		<script src="<?= BASEURL; ?>/js/js-hapus.js"></script>
 		<script src="<?= BASEURL; ?>/js/js-logout.js"></script>
+		<script src="<?= BASEURL; ?>/js/contact.js"></script>
 		</body>
 
 		</html>
