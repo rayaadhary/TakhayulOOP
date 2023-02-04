@@ -12,7 +12,7 @@ class Login extends Controller
 
     public function admin()
     {
-        session_start();
+        // session_start();
         if ($_SESSION['login'] != true) {
             header('Location: ' . BASEURL . '/login');
             exit;
@@ -59,5 +59,27 @@ class Login extends Controller
         $this->view('template/header', $data);
         $this->view('login/lupaPassword', $data);
         $this->view('template/footer');
+    }
+
+    public function passwordBaru()
+    {
+        $usernameBaru = $_POST['usernameBaru'];
+        $passwordBaru = $_POST['passwordBaru'];
+        $konfirmasiPassword = $_POST['konfirmasiPassword'];
+        if ($passwordBaru == $konfirmasiPassword) {
+            if ($this->model('LoginModel')->ubahPassword($usernameBaru, $passwordBaru) > 0) {
+                Flasher::setFlash('berhasil', 'diubah', 'success');
+                header('Location: ' . BASEURL . '/login');
+                exit;
+            } else {
+                Flasher::setFlash('gagal', 'diubah', 'danger');
+                header('Location: ' . BASEURL . '/login/lupaPassword');
+                exit;
+            }
+        } else {
+            Flasher::setFlash('gagal', 'diubah', 'danger');
+            header('Location: ' . BASEURL . '/login/lupaPassword');
+            exit;
+        }
     }
 }
