@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 29, 2023 at 11:11 AM
+-- Generation Time: Feb 04, 2023 at 10:40 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -30,16 +30,22 @@ SET time_zone = "+00:00";
 CREATE TABLE `artikel` (
   `id` int(11) NOT NULL,
   `judul` text NOT NULL,
-  `deskripsi` text NOT NULL
+  `deskripsi` text NOT NULL,
+  `gambar` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `artikel`
 --
 
-INSERT INTO `artikel` (`id`, `judul`, `deskripsi`) VALUES
-(1, 'Kucing hitam membawa sial?', 'Asal usul takhayul tentang kucing hitam dikaitkan dengan kemalangan dan kemalangan datang dari zaman dahulu. Dalam mitologi Kristen, kucing hitam dianggap sebagai makhluk yang dikendalikan oleh iblis dan sering dikaitkan dengan kejadian buruk. Dalam mitologi Inggris, kucing hitam dianggap sebagai pembawa keberuntungan buruk. Namun, dalam budaya lain seperti Cina dan Jepang, kucing hitam dianggap sebagai simbol keberuntungan.Beberapa teori menyatakan bahwa keyakinan ini berasal dari persekutuan kucing dengan dunia kepercayaan pagan, di mana kucing dianggap sebagai makhluk yang dapat menghubungkan dunia manusia dengan dunia roh. Kucing juga dianggap sebagai pelindung rumah dari roh jahat dan kemalangan. Namun, faktanya, kucing hitam sama seperti kucing lainnya dan tidak lebih atau kurang berbahaya atau beruntung. Beberapa orang mungkin merasa tidak nyaman dengan kucing hitam karena mitos atau karena warna kulit yang unik, tetapi ini tidak ada hubungannya dengan karakter atau perilaku kucing itu sendiri.'),
-(2, 'Duduk di atas bantal, bisulan?', 'Ada beberapa teori yang menyatakan bahwa duduk di atas bantal dapat menyebabkan bisulan. Namun, tidak ada bukti ilmiah yang kuat yang mendukung afirmasi ini. Faktor lain seperti kondisi kulit dan hygiene dapat lebih mempengaruhi munculnya bisulan daripada duduk di atas bantal. Namun, jika seseorang merasa nyaman dengan duduk di atas bantal atau jika itu membantu dalam mengurangi nyeri pinggul atau punggung, tidak ada alasan untuk menghindarinya.');
+INSERT INTO `artikel` (`id`, `judul`, `deskripsi`, `gambar`) VALUES
+(1, 'Kucing hitam membawa sial?', 'Asal usul takhayul tentang kucing hitam dikaitkan dengan kemalangan dan kemalangan datang dari zaman dahulu. Dalam mitologi Kristen, kucing hitam dianggap sebagai makhluk yang dikendalikan oleh iblis dan sering dikaitkan dengan kejadian buruk. Dalam mitologi Inggris, kucing hitam dianggap sebagai pembawa keberuntungan buruk. Namun, dalam budaya lain seperti Cina dan Jepang, kucing hitam dianggap sebagai simbol keberuntungan.Beberapa teori menyatakan bahwa keyakinan ini berasal dari persekutuan kucing dengan dunia kepercayaan pagan, di mana kucing dianggap sebagai makhluk yang dapat menghubungkan dunia manusia dengan dunia roh. Kucing juga dianggap sebagai pelindung rumah dari roh jahat dan kemalangan. Namun, faktanya, kucing hitam sama seperti kucing lainnya dan tidak lebih atau kurang berbahaya atau beruntung. Beberapa orang mungkin merasa tidak nyaman dengan kucing hitam karena mitos atau karena warna kulit yang unik, tetapi ini tidak ada hubungannya dengan karakter atau perilaku kucing itu sendiri.', NULL),
+(2, 'Duduk di atas bantal, bisulan?', 'Ada beberapa teori yang menyatakan bahwa duduk di atas bantal dapat menyebabkan bisulan. Namun, tidak ada bukti ilmiah yang kuat yang mendukung afirmasi ini. Faktor lain seperti kondisi kulit dan hygiene dapat lebih mempengaruhi munculnya bisulan daripada duduk di atas bantal. Namun, jika seseorang merasa nyaman dengan duduk di atas bantal atau jika itu membantu dalam mengurangi nyeri pinggul atau punggung, tidak ada alasan untuk menghindarinya.', NULL),
+(21, 'ada apa denganmu', 'bukannya sesuatu hal', '63d9128feb76b.jpg'),
+(22, 'tolol', 'tolol', '63d91345a0af3.jpg'),
+(23, 'gg', 'ggg', '63d9135d216b7.png'),
+(24, 'naha atuh gagal', 'teuing atuh', '63d913da09eae.png'),
+(25, 'ggh', 'hjjj', '63db3d900b224.jpg');
 
 -- --------------------------------------------------------
 
@@ -63,6 +69,26 @@ INSERT INTO `jawaban` (`id`, `id_pertanyaan`, `deskripsi`, `jawaban`) VALUES
 (2, 1, 'Tidak', 1),
 (3, 2, 'Ya', 0),
 (4, 2, 'Tidak', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pengguna`
+--
+
+CREATE TABLE `pengguna` (
+  `id` int(11) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(30) NOT NULL,
+  `nama` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pengguna`
+--
+
+INSERT INTO `pengguna` (`id`, `username`, `password`, `nama`) VALUES
+(1, 'admin', 'admin', 'admin');
 
 -- --------------------------------------------------------
 
@@ -102,6 +128,12 @@ ALTER TABLE `jawaban`
   ADD KEY `id_pertanyaan` (`id_pertanyaan`);
 
 --
+-- Indexes for table `pengguna`
+--
+ALTER TABLE `pengguna`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `pertanyaan`
 --
 ALTER TABLE `pertanyaan`
@@ -115,13 +147,19 @@ ALTER TABLE `pertanyaan`
 -- AUTO_INCREMENT for table `artikel`
 --
 ALTER TABLE `artikel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `jawaban`
 --
 ALTER TABLE `jawaban`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `pengguna`
+--
+ALTER TABLE `pengguna`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
