@@ -57,10 +57,10 @@
                             <div class="nav-item dropdown">
                                 <a class="nav-link" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <img src="<?= BASEURL; ?>/images/instructor_1.jpg" alt="user" class="rounded-circle" width="40">
-                                    <span class="ml-2 d-none d-lg-inline-block text-dark"><span>Jason Doe <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
+                                    <span class="ml-2 d-none d-lg-inline-block text-dark"><span><?= $_SESSION['nama']; ?> <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-center user-dd animated">
-                                    <a class="dropdown-item log-out" href="<?= BASEURL; ?>/login">
+                                    <a class="dropdown-item log-out" href="<?= BASEURL; ?>/Login/logout">
                                         <i class="fa fa-sign-out" aria-hidden="true"></i>
                                         Logout
                                     </a>

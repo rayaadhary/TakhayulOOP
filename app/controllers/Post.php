@@ -23,10 +23,16 @@ class Post extends Controller
 
   public function formTambah()
   {
-    $data['judul'] = 'Form Tambah';
-    $this->view('template/headerAdmin', $data);
-    $this->view('post/formTambah', $data);
-    $this->view('template/footerPost', $data);
+    session_start();
+    if ($_SESSION['login'] != true) {
+      header('Location: ' . BASEURL . '/post');
+      exit;
+    } else {
+      $data['judul'] = 'Form Tambah';
+      $this->view('template/headerAdmin', $data);
+      $this->view('post/formTambah', $data);
+      $this->view('template/footerPost', $data);
+    }
   }
 
   public function tambah()
@@ -44,11 +50,17 @@ class Post extends Controller
 
   public function formUbah($id)
   {
-    $data['judul'] = 'Form Ubah';
-    $data['artikel'] = $this->model('PostModel')->getArtikelById($id);
-    $this->view('template/headerAdmin', $data);
-    $this->view('post/formUbah', $data);
-    $this->view('template/footerPost', $data);
+    session_start();
+    if ($_SESSION['login'] != true) {
+      header('Location: ' . BASEURL . '/post');
+      exit;
+    } else {
+      $data['judul'] = 'Form Ubah';
+      $data['artikel'] = $this->model('PostModel')->getArtikelById($id);
+      $this->view('template/headerAdmin', $data);
+      $this->view('post/formUbah', $data);
+      $this->view('template/footerPost', $data);
+    }
   }
 
   public function ubah()

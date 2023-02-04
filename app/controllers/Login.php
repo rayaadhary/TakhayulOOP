@@ -12,17 +12,29 @@ class Login extends Controller
 
     public function admin()
     {
-        $data['judul'] = 'Administrator';
-        $data['artikel'] = $this->model('PostModel')->getAllArtikel();
-        $this->view('template/headerAdmin', $data);
-        $this->view('login/admin', $data);
-        $this->view('template/footer');
+        session_start();
+        if ($_SESSION['login'] != true) {
+            header('Location: ' . BASEURL . '/login');
+            exit;
+        } else {
+            $data['judul'] = 'Administrator';
+            $data['artikel'] = $this->model('PostModel')->getAllArtikel();
+            $this->view('template/headerAdmin', $data);
+            $this->view('login/admin', $data);
+            $this->view('template/footer');
+        }
     }
 
     public function login()
     {
-        if ($this->model('LoginModel')->cekDataLogin($_POST) > 0) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $pengguna = $this->model('LoginModel')->cekDataLogin($username, $password);
+        if ($pengguna) {
             Flasher::setFlash('berhasil', 'login', 'success');
+            session_start();
+            $_SESSION['login'] = true;
+            $_SESSION['nama'] = $pengguna['nama'];
             header('Location: ' . BASEURL . '/login/admin');
             exit;
         } else {
@@ -30,6 +42,15 @@ class Login extends Controller
             header('Location: ' . BASEURL . '/login');
             exit;
         }
+    }
+
+    public function logout()
+    {
+        session_start();
+        session_unset();
+        session_destroy();
+        header('Location: ' . BASEURL . '/login');
+        exit;
     }
 
     public function lupaPassword()

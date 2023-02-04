@@ -6,7 +6,7 @@
             <div class="row">
                 <!-- Panels -->
                 <div class="col">
-                    <div class="card mt-4">
+                    <div class="card mt-4 mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <div class="form_title">Ubah Artikel</div>
                         </div>
