@@ -16,7 +16,6 @@
                                 <div class="form-group has-validation">
                                     <label for="judul" class="text-dark">Judul Artikel</label>
                                     <input type="text" name="judul" class="form-control" id="judul" value="<?= $data['artikel']['judul'] ?>" aria-describedby="judul" placeholder="isi dengan judul artikel" required>
-                                    <div class="invalid-feedback">Mohon tuliskan judul</div>
                                 </div>
                                 <div class="form-group has-validation">
                                     <label for="artikel" class="text-dark">Artikel</label>

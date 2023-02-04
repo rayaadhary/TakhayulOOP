@@ -19,6 +19,19 @@ class Login extends Controller
         $this->view('template/footer');
     }
 
+    public function login()
+    {
+        if ($this->model('LoginModel')->cekDataLogin($_POST) > 0) {
+            Flasher::setFlash('berhasil', 'login', 'success');
+            header('Location: ' . BASEURL . '/login/admin');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'login', 'danger');
+            header('Location: ' . BASEURL . '/login');
+            exit;
+        }
+    }
+
     public function lupaPassword()
     {
         $data['judul'] = 'Lupa Password';

@@ -12,7 +12,7 @@ $(".delete-data").on("click", function (e) {
     cancelButtonColor: "#d33",
     confirmButtonText: "Hapus",
     cancelButtonText: "Batal",
-    width: "200px",
+    width: "400px",
   }).then((result) => {
     if (result.value) {
       window.location.href = getLink;

@@ -14,7 +14,7 @@
             <?php
             foreach ($data['artikel'] as $items) {
             ?>
-                <div class="col-lg-4 course_col mb-3">
+                <dpiv class="col-lg-4 course_col mb-3">
                     <div class="course">
                         <div class="course_image"><img src="<?= BASEURL; ?>/images/<?= $items['gambar']; ?>" alt=""></div>
                         <div class="course_body">
@@ -25,7 +25,7 @@
                             <a href="<?= BASEURL; ?>/post/hapus/<?= $items['id']; ?>" title="Hapus" class="delete-data"><i class="fa fa-trash fa-2x text-danger" aria-hidden="true"></i></a>
                         </div>
                     </div>
-                </div>
+                </dpiv>
             <?php
             }
             ?>
