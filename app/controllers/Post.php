@@ -23,7 +23,6 @@ class Post extends Controller
 
   public function formTambah()
   {
-    session_start();
     if ($_SESSION['login'] != true) {
       header('Location: ' . BASEURL . '/post');
       exit;
@@ -50,7 +49,6 @@ class Post extends Controller
 
   public function formUbah($id)
   {
-    session_start();
     if ($_SESSION['login'] != true) {
       header('Location: ' . BASEURL . '/post');
       exit;
