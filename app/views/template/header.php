@@ -21,6 +21,33 @@
         <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/contact_responsive.css">
     <?php } ?>
 </head>
+<style>
+    /* CUSTOM */
+    .button {
+        width: 20%;
+        height: 30px;
+        background: #2e21df;
+        color: #ffffff;
+        text-transform: uppercase;
+        letter-spacing: 0.3em;
+        font-family: "Montserrat", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 3px;
+        margin-top: 5px;
+    }
+
+    .button:hover {
+        box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .button:focus {
+        outline: none;
+    }
+</style>
 
 <body>
     <!-- Header -->

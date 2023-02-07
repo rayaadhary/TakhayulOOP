@@ -1,22 +1,22 @@
-<div class="super_container">
-	<!-- Course -->
-
-	<div class="course">
-		<div class="container">
-			<div class="row row-lg">
+<div class="container mt-3 mb-3">
+	<div class="row justify-content-center">
+		<!-- Register Form -->
+		<div class="col-lg-12">
+			<div class="register_form_container">
+				<div class="register_form_title h1 text-center">Quiz</div>
 				<form action="<?= BASEURL; ?>/kuis/hasil" method="POST">
 					<?php
 					$db = new Database();
 					$c = $db->__construct();
 					try {
-						$query = $c->prepare("select * from pertanyaan order by rand() limit 50");
+						$query = $c->prepare("SELECT * FROM pertanyaan ORDER BY rand() limit 50");
 						$query->execute();
-						echo '<ol>';
+						echo '<ol class="text-dark">';
 						while ($pertanyaan = $query->fetch()) {
 							// while ($pertanyaan) {
 							echo '<li>';
 							echo htmlentities($pertanyaan['deskripsi']);
-							$query2 = $c->prepare("select * from jawaban where id_pertanyaan = :id_pertanyaan order by rand()");
+							$query2 = $c->prepare("SELECT * FROM jawaban WHERE id_pertanyaan = :id_pertanyaan ORDER BY rand()");
 							$query2->execute(array("id_pertanyaan" => $pertanyaan['id']));
 							echo '<ol type="A">';
 							while ($jawaban = $query2->fetch()) {
@@ -31,11 +31,15 @@
 						}
 						echo '</ol>';
 					} catch (Exception $e) {
-						echo "Gagal menampilkan pertanyaan. ";
-						echo "Error: " . $e->getMessage();
+						echo '<div class="alert alert-danger alert-dismissible fade show" role="alert"><strong>Gagal</strong> menampilkan pertanyaan.
+								<p>Error: ' . $e->getMessage() . '</p>
+								<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+								</div>';
+						// echo "Gagal menampilkan pertanyaan. ";
+						// echo "Error: " . $e->getMessage();
 					}
 					?>
-					<button type="submit">Kirim Jawaban</button>
+					<button type="submit" class="button">Kirim Jawaban</button>
 				</form>
 			</div>
 		</div>

@@ -8,7 +8,7 @@
 		</div>
 		<?php if (isset($_SESSION['login'])) { ?>
 			<div class="text-start">
-				<a href="<?= BASEURL ?>/post/formTambah" class="btn btn-primary">Tambah Artikel</a>
+				<a href="<?= BASEURL ?>/post/formTambah" class="btn text-white" style="background-color: #2e21df; font-weight: 400;">Tambah Artikel</a>
 			</div>
 		<?php } ?>
 		<div class="row courses_row">
