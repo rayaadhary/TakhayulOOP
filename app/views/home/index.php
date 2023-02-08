@@ -7,7 +7,7 @@
 				<div class="row">
 					<div class="col text-center">
 						<h1 class="home_title">Kuis Takhayul</h1>
-						<div class="home_button trans_200"><a href="<?= BASEURL; ?>/kuis">mulai</a></div>
+						<div class="home_button trans_200"><a href="<?= BASEURL; ?>/quiz">mulai</a></div>
 					</div>
 				</div>
 			</div>
