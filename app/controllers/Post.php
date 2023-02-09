@@ -2,10 +2,26 @@
 
 class Post extends Controller
 {
+  // public function index()
+  // {
+  //   $data['judul'] = 'Artikel';
+  //   $data['artikel'] = $this->model('PostModel')->getAllArtikel();
+  //   $this->view('template/header', $data);
+  //   $this->view('post/index', $data);
+  //   $this->view('template/footer');
+  // }
+
   public function index()
   {
     $data['judul'] = 'Artikel';
-    $data['artikel'] = $this->model('PostModel')->getAllArtikel();
+    $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $postsPerPage = 6;
+    $start = ($currentPage - 1) * $postsPerPage;
+    $data['artikel'] = $this->model('PostModel')->getAllArtikel($start, $postsPerPage);
+    $data['total'] = $this->model('PostModel')->getTotalArtikel();
+    $data['pages'] = ceil($data['total'] / $postsPerPage);
+    $data['currentPage'] = $currentPage;
+    $data['postsPerPage'] = $postsPerPage;
     $this->view('template/header', $data);
     $this->view('post/index', $data);
     $this->view('template/footer');

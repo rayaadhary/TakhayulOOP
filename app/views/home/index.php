@@ -24,7 +24,6 @@
 				</div>
 			</div>
 			<div class="row courses_row">
-
 				<!-- Course -->
 				<?php
 				foreach ($data['artikel'] as $items) {
@@ -41,5 +40,15 @@
 				}
 				?>
 			</div>
+			<nav aria-label="...">
+				<ul class="pagination justify-content-center">
+					<?php
+					for ($i = 1; $i <= $data['pages']; $i++) { ?>
+						<li class="page-item <?php if ($data['currentPage'] == $i) echo "active" ?>" aria-current="page">
+							<a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+						</li>
+					<?php } ?>
+				</ul>
+			</nav>
 		</div>
 	</div>

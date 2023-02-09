@@ -10,11 +10,27 @@ class PostModel
         $this->db = new Database;
     }
 
-    public function getAllArtikel()
+    // public function getAllArtikel()
+    // {
+    //     $this->db->query('SELECT * FROM ' . $this->table);
+    //     $data = $this->db->resultSet();
+    //     return $data;
+    // }
+
+    public function getAllArtikel($start, $limit)
     {
-        $this->db->query('SELECT * FROM ' . $this->table);
+        $this->db->query('SELECT * FROM ' . $this->table . ' LIMIT :start, :limit');
+        $this->db->bind('start', $start);
+        $this->db->bind('limit', $limit);
         $data = $this->db->resultSet();
         return $data;
+    }
+
+    public function getTotalArtikel()
+    {
+        $this->db->query('SELECT * FROM ' . $this->table);
+        $this->db->execute();
+        return $this->db->rowCount();
     }
 
     public function getArtikelById($id)
