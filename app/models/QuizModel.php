@@ -17,24 +17,10 @@ class QuizModel
     return $data;
   }
 
-  public function getPertanyaanById($id)
-  {
-    $this->db->query("SELECT * FROM pertanyaan WHERE id=$id");
-    $data = $this->db->single();
-    return $data;
-  }
-
   public function getAllJawaban()
   {
     $this->db->query('SELECT * FROM ' . $this->table1);
     $data = $this->db->resultSet();
-    return $data;
-  }
-
-  public function getJawabanById($id)
-  {
-    $this->db->query("SELECT * FROM jawaban WHERE id=$id");
-    $data = $this->db->single();
     return $data;
   }
 }

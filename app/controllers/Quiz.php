@@ -24,8 +24,6 @@ class Quiz extends Controller
       $data['id'] = array_map("intval", $id);
       $data['pertanyaan'] = $this->model('QuizModel')->getAllPertanyaan();
       $data['jawaban'] = $this->model('QuizModel')->getAllJawaban();
-      // $data['pertanyaan'] = $this->model('QuizModel')->getPertanyaanById($id);
-      // $data['jawaban'] = $this->model('QuizModel')->getJawabanById($id);
       $this->view('template/header', $data);
       $this->view('quiz/hasil', $data);
       $this->view('template/footer');

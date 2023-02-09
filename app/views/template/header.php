@@ -67,6 +67,9 @@
                                 <li class="<?= ($data['judul'] == 'Home') ? 'active' : '' ?>">
                                     <a href="<?= BASEURL; ?>">Home</a>
                                 </li>
+                                <li class="<?= ($data['judul'] == 'Quiz' || $data['judul'] == 'Hasil Quiz') ? 'active' : '' ?>">
+                                    <a href="<?= BASEURL; ?>/quiz">Quiz</a>
+                                </li>
                                 <li class="<?= ($data['judul'] == 'Artikel' || $data['judul'] == 'Detail Artikel') ? 'active' : '' ?>">
                                     <a href="<?= BASEURL; ?>/post">Artikel</a>
                                 </li>
