@@ -17,22 +17,24 @@
               ?>
                 <li>
                   <p class="text-dark"><?= $items['deskripsi']; ?></p>
-                  <?php
-                  foreach ($data['jawaban'] as $jawaban) {
-                  ?>
+                  <ul>
                     <?php
-                    if ($jawaban['id_pertanyaan'] == $items['id']) {
+                    foreach ($data['jawaban'] as $jawaban) {
                     ?>
-                      <div>
-                        <input type="radio" name="jawaban-<?= $items['id']; ?>" value="<?= $jawaban['id']; ?>" required>
-                        <label for=""><?= $jawaban['deskripsi']; ?></label>
-                      </div>
+                      <?php
+                      if ($jawaban['id_pertanyaan'] == $items['id']) {
+                      ?>
+                        <li>
+                          <input type="radio" name="jawaban[<?= $items['id'] ?>]" value="<?= $jawaban['id']; ?>" required>
+                          <label for=""><?= $jawaban['deskripsi']; ?></label>
+                        </li>
+                      <?php
+                      }
+                      ?>
                     <?php
                     }
                     ?>
-                  <?php
-                  }
-                  ?>
+                  </ul>
                 <?php
               }
                 ?>

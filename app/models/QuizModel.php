@@ -17,10 +17,9 @@ class QuizModel
     return $data;
   }
 
-  public function getJawabanById($id)
+  public function getPertanyaanById($id)
   {
-    $this->db->query('SELECT * FROM ' . $this->table1 . ' WHERE id_pertanyaan =:id');
-    $this->db->bind('id', $id);
+    $this->db->query("SELECT * FROM pertanyaan WHERE id=$id");
     $data = $this->db->single();
     return $data;
   }
@@ -29,6 +28,13 @@ class QuizModel
   {
     $this->db->query('SELECT * FROM ' . $this->table1);
     $data = $this->db->resultSet();
+    return $data;
+  }
+
+  public function getJawabanById($id)
+  {
+    $this->db->query("SELECT * FROM jawaban WHERE id=$id");
+    $data = $this->db->single();
     return $data;
   }
 }

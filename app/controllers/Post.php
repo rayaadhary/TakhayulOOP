@@ -14,7 +14,6 @@ class Post extends Controller
   public function detail($id)
   {
     $data['judul'] = 'Detail Artikel';
-    $data['id'] = $id;
     $data['artikel'] = $this->model('PostModel')->getArtikelById($id);
     $this->view('template/header', $data);
     $this->view('post/detail', $data);
