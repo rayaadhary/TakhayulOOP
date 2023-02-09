@@ -24,6 +24,11 @@
                         <?= $pertanyaan['deskripsi']; ?>
                         <p class="text-dark">
                           Jawaban : <?= $jawaban['deskripsi']; ?>
+                          <?php
+                          if ($jawaban['jawaban'] == 1) {
+                            $total += $pertanyaan['skor'];
+                          }
+                          ?>
                         </p>
                       </li>
             <?php
@@ -35,8 +40,19 @@
             ?>
           </ol>
           <div class="text-center">
-            <h3 class="">Selamat Skor Anda = <?= $total ?></h3>
+            <?php
+            if ($total >= 70) {
+            ?>
+              <h4 class='text-success'>Anda Cenderung Tidak Percaya Terhadap Takhayul</h4>
+            <?php
+            } else {
+            ?>
+              <h4 class='text-danger'>Anda Cenderung Percaya Terhadap Takhayul</h4>
+            <?php
+            }
+            ?>
           </div>
+          <a href="<?= BASEURL; ?>/quiz" class="btn text-white" style="background-color: #2e21df; font-weight: 400;">Coba Lagi</a>
         </div>
       </div>
     </div>
