@@ -27,7 +27,11 @@
                   </div>
                 </div>
                 <div class="form-group has-validation">
-                  <input type="file" name="gambar" id="" required>
+                  <!-- <input type="file" name="gambar" id="" required> -->
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="gambarInput" name="gambar" style="display: none;" required>
+                    <label class="btn text-white custom-file-label" style="background-color: #2e21df;" for="gambarInput">Unggah Gambar</label>
+                  </div>
                   <div class="invalid-feedback">
                     Mohon unggah gambar
                   </div>
@@ -42,3 +46,9 @@
       </div>
     </div>
   </div>
+
+  <script>
+    $('.custom-file-input').on('change', function() {
+      $(this).next('.custom-file-label').text($(this).val().split('\\').pop());
+    });
+  </script>
