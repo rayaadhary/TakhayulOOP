@@ -11,10 +11,10 @@ class Post extends Controller
   //   $this->view('template/footer');
   // }
 
-  public function index()
+  public function index($i = null)
   {
     $data['judul'] = 'Artikel';
-    $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $currentPage = isset($i) ? (int)$i : 1;
     $postsPerPage = 6;
     $start = ($currentPage - 1) * $postsPerPage;
     $data['artikel'] = $this->model('PostModel')->getAllArtikel($start, $postsPerPage);

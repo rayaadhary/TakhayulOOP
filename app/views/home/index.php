@@ -45,7 +45,7 @@
 					<?php
 					for ($i = 1; $i <= $data['pages']; $i++) { ?>
 						<li class="page-item <?php if ($data['currentPage'] == $i) echo "active" ?>" aria-current="page">
-							<a class="page-link" href="?page=<?php echo $i; ?>"><?php echo $i; ?></a>
+							<a class="page-link" href="<?= BASEURL ?>/<?= $i; ?>"><?php echo $i; ?></a>
 						</li>
 					<?php } ?>
 				</ul>
