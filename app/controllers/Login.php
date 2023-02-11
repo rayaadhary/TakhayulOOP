@@ -10,20 +10,20 @@ class Login extends Controller
         $this->view('template/footer');
     }
 
-    public function admin()
-    {
-        // session_start();
-        if ($_SESSION['login'] != true) {
-            header('Location: ' . BASEURL . '/login');
-            exit;
-        } else {
-            $data['judul'] = 'Administrator';
-            $data['artikel'] = $this->model('PostModel')->getAllArtikel();
-            $this->view('template/header', $data);
-            $this->view('post', $data);
-            $this->view('template/footer');
-        }
-    }
+    // public function admin()
+    // {
+    //     // session_start();
+    //     if ($_SESSION['login'] != true) {
+    //         header('Location: ' . BASEURL . '/login');
+    //         exit;
+    //     } else {
+    //         $data['judul'] = 'Administrator';
+    //         $data['artikel'] = $this->model('PostModel')->getAllArtikel();
+    //         $this->view('template/header', $data);
+    //         $this->view('artikel', $data);
+    //         $this->view('template/footer');
+    //     }
+    // }
 
     public function login()
     {
@@ -35,7 +35,7 @@ class Login extends Controller
             session_start();
             $_SESSION['login'] = true;
             $_SESSION['nama'] = $pengguna['nama'];
-            header('Location: ' . BASEURL . '/post');
+            header('Location: ' . BASEURL . '/artikel');
             exit;
         } else {
             Flasher::setFlash('gagal', 'login', 'danger');

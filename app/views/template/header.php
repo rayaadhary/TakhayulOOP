@@ -71,7 +71,7 @@
                                     <a href="<?= BASEURL; ?>/quiz">Quiz</a>
                                 </li>
                                 <li class="<?= ($data['judul'] == 'Artikel' || $data['judul'] == 'Detail Artikel') ? 'active' : '' ?>">
-                                    <a href="<?= BASEURL; ?>/post">Artikel</a>
+                                    <a href="<?= BASEURL; ?>/artikel">Artikel</a>
                                 </li>
                             </ul>
                         </nav>

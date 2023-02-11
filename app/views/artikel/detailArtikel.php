@@ -17,7 +17,6 @@
 	</div>
 
 	<!-- Course -->
-
 	<div class="course">
 		<div class="container">
 			<div class="row row-lg">
@@ -27,8 +26,6 @@
 						<p class="text-dark"><?= $data['artikel']['deskripsi'] ?></p>
 					</div>
 				</div>
-
-
 			</div>
 		</div>
 	</div>

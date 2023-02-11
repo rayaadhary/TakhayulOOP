@@ -11,7 +11,7 @@
                             <div class="form_title">Ubah Artikel</div>
                         </div>
                         <div class="card-body">
-                            <form class="was-validated" action="<?= BASEURL ?>/post/ubah" method="post" enctype="multipart/form-data">
+                            <form class="was-validated" action="<?= BASEURL ?>/artikel/ubahArtikel" method="post" enctype="multipart/form-data">
                                 <input type="hidden" name="id" id="id" value="<?= $data['artikel']['id'] ?>">
                                 <div class="form-group has-validation">
                                     <label for="judul" class="text-dark">Judul Artikel</label>

@@ -1,6 +1,6 @@
 <?php
 
-class PostModel
+class ArtikelModel
 {
     private $table = 'artikel';
     private $db;
@@ -66,9 +66,7 @@ class PostModel
 
         // cek apakah tidak ada gambar yang diupload
         if ($error === 4) {
-            echo "<script>
-                        alert('pilih gambar terlebih dahulu');
-                    </script>";
+            echo "<script>alert('pilih gambar terlebih dahulu');</script>";
             return false;
         }
 
@@ -77,17 +75,13 @@ class PostModel
         $ekstensiGambar = explode('.', $namaFile);
         $ekstensiGambar = strtolower(end($ekstensiGambar));
         if (!in_array($ekstensiGambar, $ekstensiGambarValid)) {
-            echo "<script>
-                        alert('yang anda upload bukan gambar');
-                    </script>";
+            echo "<script>alert('yang anda upload bukan gambar');</script>";
             return false;
         }
 
         // cek jika ukurannya terlalu besar
         if ($ukuranFile > 5242880) {
-            echo "<script>
-                        alert('ukuran gambar terlalu besar');
-                    </script>";
+            echo "<script>alert('ukuran gambar terlalu besar');</script>";
             return false;
         }
 

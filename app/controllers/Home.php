@@ -8,8 +8,8 @@ class Home extends Controller
     $currentPage = isset($i) ? (int)$i : 1;
     $postsPerPage = 6;
     $start = ($currentPage - 1) * $postsPerPage;
-    $data['artikel'] = $this->model('PostModel')->getAllArtikel($start, $postsPerPage);
-    $data['total'] = $this->model('PostModel')->getTotalArtikel();
+    $data['artikel'] = $this->model('ArtikelModel')->getAllArtikel($start, $postsPerPage);
+    $data['total'] = $this->model('ArtikelModel')->getTotalArtikel();
     $data['pages'] = ceil($data['total'] / $postsPerPage);
     $data['currentPage'] = $currentPage;
     $data['postsPerPage'] = $postsPerPage;

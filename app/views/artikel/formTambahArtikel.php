@@ -11,7 +11,7 @@
               <div class="form_title">Tambah Artikel</div>
             </div>
             <div class="card-body">
-              <form class="was-validated" action="<?= BASEURL ?>/post/tambah" method="post" enctype="multipart/form-data">
+              <form class="was-validated" action="<?= BASEURL ?>/artikel/tambahArtikel" method="post" enctype="multipart/form-data">
                 <div class="form-group has-validation">
                   <label for="judul" class="text-dark">Judul Artikel</label>
                   <input type="text" name="judul" class="form-control" id="judul" aria-describedby="judul" placeholder="isi dengan judul artikel" required>

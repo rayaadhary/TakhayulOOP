@@ -1,6 +1,6 @@
 <?php
 
-class Post extends Controller
+class Artikel extends Controller
 {
   // public function index()
   // {
@@ -17,88 +17,88 @@ class Post extends Controller
     $currentPage = isset($i) ? (int)$i : 1;
     $postsPerPage = 6;
     $start = ($currentPage - 1) * $postsPerPage;
-    $data['artikel'] = $this->model('PostModel')->getAllArtikel($start, $postsPerPage);
-    $data['total'] = $this->model('PostModel')->getTotalArtikel();
+    $data['artikel'] = $this->model('ArtikelModel')->getAllArtikel($start, $postsPerPage);
+    $data['total'] = $this->model('ArtikelModel')->getTotalArtikel();
     $data['pages'] = ceil($data['total'] / $postsPerPage);
     $data['currentPage'] = $currentPage;
     $data['postsPerPage'] = $postsPerPage;
     $this->view('template/header', $data);
-    $this->view('post/index', $data);
+    $this->view('artikel/index', $data);
     $this->view('template/footer');
   }
 
-  public function detail($id)
+  public function detailArtikel($id)
   {
     $data['judul'] = 'Detail Artikel';
-    $data['artikel'] = $this->model('PostModel')->getArtikelById($id);
+    $data['artikel'] = $this->model('ArtikelModel')->getArtikelById($id);
     $this->view('template/header', $data);
-    $this->view('post/detail', $data);
+    $this->view('artikel/detailArtikel', $data);
     $this->view('template/footer', $data);
   }
 
-  public function formTambah()
+  public function formTambahArtikel()
   {
     if ($_SESSION['login'] != true) {
-      header('Location: ' . BASEURL . '/post');
+      header('Location: ' . BASEURL . '/artikel');
       exit;
     } else {
       $data['judul'] = 'Form Tambah';
       $this->view('template/header', $data);
-      $this->view('post/formTambah', $data);
+      $this->view('artikel/formTambahArtikel', $data);
       $this->view('template/footer', $data);
     }
   }
 
-  public function tambah()
+  public function tambahArtikel()
   {
-    if ($this->model('PostModel')->tambahDataArtikel($_POST) > 0) {
+    if ($this->model('ArtikelModel')->tambahDataArtikel($_POST) > 0) {
       Flasher::setFlash('berhasil', 'ditambahkan', 'success');
-      header('Location: ' . BASEURL . '/post');
+      header('Location: ' . BASEURL . '/artikel');
       exit;
     } else {
       Flasher::setFlash('gagal', 'ditambahkan', 'danger');
-      header('Location: ' . BASEURL . '/post');
+      header('Location: ' . BASEURL . '/artikel');
       exit;
     }
   }
 
-  public function formUbah($id)
+  public function formUbahArtikel($id)
   {
     if ($_SESSION['login'] != true) {
-      header('Location: ' . BASEURL . '/post');
+      header('Location: ' . BASEURL . '/artikel');
       exit;
     } else {
       $data['judul'] = 'Form Ubah';
-      $data['artikel'] = $this->model('PostModel')->getArtikelById($id);
+      $data['artikel'] = $this->model('ArtikelModel')->getArtikelById($id);
       $this->view('template/header', $data);
-      $this->view('post/formUbah', $data);
+      $this->view('artikel/formUbahArtikel', $data);
       $this->view('template/footer', $data);
     }
   }
 
-  public function ubah()
+  public function ubahArtikel()
   {
-    if ($this->model('PostModel')->ubahDataArtikel($_POST) > 0) {
+    if ($this->model('ArtikelModel')->ubahDataArtikel($_POST) > 0) {
       Flasher::setFlash('berhasil', 'diubah', 'success');
-      header('Location: ' . BASEURL . '/post');
+      header('Location: ' . BASEURL . '/artikel');
       exit;
     } else {
       Flasher::setFlash('gagal', 'diubah', 'danger');
-      header('Location: ' . BASEURL . '/post');
+      header('Location: ' . BASEURL . '/artikel');
       exit;
     }
   }
 
-  public function hapus($id)
+  public function hapusArtikel($id)
   {
-    $hapus = $this->model('PostModel')->hapusDataArtikel($id);
+    $hapus = $this->model('ArtikelModel')->hapusDataArtikel($id);
     if (!$hapus) {
       Flasher::setFlash('berhasil', 'dihapus', 'success');
-      header('Location: ' . BASEURL . '/post');
+      header('Location: ' . BASEURL . '/artikel');
       exit;
     } else {
       Flasher::setFlash('gagal', 'dihapus', 'danger');
-      header('Location: ' . BASEURL . '/post');
+      header('Location: ' . BASEURL . '/artikel');
       exit;
     }
   }
