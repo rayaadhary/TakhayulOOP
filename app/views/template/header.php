@@ -70,7 +70,7 @@
                                 <li class="<?= ($data['judul'] == 'Quiz' || $data['judul'] == 'Hasil Quiz') ? 'active' : '' ?>">
                                     <a href="<?= BASEURL; ?>/quiz">Quiz</a>
                                 </li>
-                                <li class="<?= ($data['judul'] == 'Artikel' || $data['judul'] == 'Detail Artikel') ? 'active' : '' ?>">
+                                <li class="<?= ($data['judul'] == 'Artikel' || $data['judul'] == 'Detail Artikel' || $data['judul'] == 'Form Tambah Artikel' || $data['judul'] == 'Form Ubah Artikel') ? 'active' : '' ?>">
                                     <a href="<?= BASEURL; ?>/artikel">Artikel</a>
                                 </li>
                             </ul>
@@ -86,6 +86,7 @@
                                     </form>
                                 </div>
                             </div> -->
+
                             <?php if (isset($_SESSION['login'])) { ?>
                                 <div class="nav-item dropdown">
                                     <a class="nav-link" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -93,7 +94,7 @@
                                         <span class="ml-2 d-none d-lg-inline-block text-dark"><span><?= isset($_SESSION['nama']) ? $_SESSION['nama'] : ''  ?> <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-center user-dd animated">
-                                        <a class="dropdown-item log-out" href="<?= BASEURL; ?>/Login/logout">
+                                        <a class="dropdown-item log-out" href="<?= BASEURL; ?>/User/logout">
                                             <i class="fa fa-sign-out" aria-hidden="true"></i>
                                             Logout
                                         </a>
@@ -101,7 +102,7 @@
                                 </div>
                             <?php } else { ?>
                                 <div class="user">
-                                    <a href="<?= BASEURL; ?>/login"><i class="fa fa-user" aria-hidden="true"></i></a>
+                                    <a href="<?= BASEURL; ?>/user"><i class="fa fa-user" aria-hidden="true"></i></a>
                                 </div>
                             <?php } ?>
 

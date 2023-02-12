@@ -42,7 +42,7 @@ class Artikel extends Controller
       header('Location: ' . BASEURL . '/artikel');
       exit;
     } else {
-      $data['judul'] = 'Form Tambah';
+      $data['judul'] = 'Form Tambah Artikel';
       $this->view('template/header', $data);
       $this->view('artikel/formTambahArtikel', $data);
       $this->view('template/footer', $data);
@@ -68,7 +68,7 @@ class Artikel extends Controller
       header('Location: ' . BASEURL . '/artikel');
       exit;
     } else {
-      $data['judul'] = 'Form Ubah';
+      $data['judul'] = 'Form Ubah Artikel';
       $data['artikel'] = $this->model('ArtikelModel')->getArtikelById($id);
       $this->view('template/header', $data);
       $this->view('artikel/formUbahArtikel', $data);

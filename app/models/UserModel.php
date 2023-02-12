@@ -1,6 +1,6 @@
 <?php
 
-class LoginModel
+class UserModel
 {
     private $db;
     public function __construct()

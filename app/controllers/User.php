@@ -1,12 +1,12 @@
 <?php
 
-class Login extends Controller
+class User extends Controller
 {
     public function index()
     {
         $data['judul'] = 'Login';
         $this->view('template/header', $data);
-        $this->view('login/index', $data);
+        $this->view('user/index', $data);
         $this->view('template/footer');
     }
 
@@ -29,7 +29,7 @@ class Login extends Controller
     {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $pengguna = $this->model('LoginModel')->cekDataLogin($username, $password);
+        $pengguna = $this->model('UserModel')->cekDataLogin($username, $password);
         if ($pengguna) {
             Flasher::setFlash('berhasil', 'login', 'success');
             session_start();
@@ -39,7 +39,7 @@ class Login extends Controller
             exit;
         } else {
             Flasher::setFlash('gagal', 'login', 'danger');
-            header('Location: ' . BASEURL . '/login');
+            header('Location: ' . BASEURL . '/user');
             exit;
         }
     }
@@ -49,7 +49,7 @@ class Login extends Controller
         session_start();
         session_unset();
         session_destroy();
-        header('Location: ' . BASEURL . '/login');
+        header('Location: ' . BASEURL . '/user');
         exit;
     }
 
@@ -57,7 +57,7 @@ class Login extends Controller
     {
         $data['judul'] = 'Lupa Password';
         $this->view('template/header', $data);
-        $this->view('login/lupaPassword', $data);
+        $this->view('user/lupaPassword', $data);
         $this->view('template/footer');
     }
 
@@ -67,18 +67,18 @@ class Login extends Controller
         $passwordBaru = $_POST['passwordBaru'];
         $konfirmasiPassword = $_POST['konfirmasiPassword'];
         if ($passwordBaru == $konfirmasiPassword) {
-            if ($this->model('LoginModel')->ubahPassword($usernameBaru, $passwordBaru) > 0) {
+            if ($this->model('UserModel')->ubahPassword($usernameBaru, $passwordBaru) > 0) {
                 Flasher::setFlash('berhasil', 'diubah', 'success');
-                header('Location: ' . BASEURL . '/login');
+                header('Location: ' . BASEURL . '/user');
                 exit;
             } else {
                 Flasher::setFlash('gagal', 'diubah', 'danger');
-                header('Location: ' . BASEURL . '/login/lupaPassword');
+                header('Location: ' . BASEURL . '/user/lupaPassword');
                 exit;
             }
         } else {
             Flasher::setFlash('gagal', 'diubah', 'danger');
-            header('Location: ' . BASEURL . '/login/lupaPassword');
+            header('Location: ' . BASEURL . '/user/lupaPassword');
             exit;
         }
     }
