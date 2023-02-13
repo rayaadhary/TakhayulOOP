@@ -133,7 +133,7 @@ class ArtikelModel
         if ($_FILES['gambar']['name'] != NULL) {
             $this->db->bind('gambar', $gambar);
         } else {
-            $this->db->bind('gambar', $gambarLama['gambar'], PDO::PARAM_STR);
+            $this->db->bind('gambar', $gambar, PDO::PARAM_STR);
         }
         $this->db->bind('id', $data['id']);
         $this->db->execute();
