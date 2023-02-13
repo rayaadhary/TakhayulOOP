@@ -16,11 +16,11 @@
                             <input type="hidden" name="id" id="id" value="<?= $data['artikel']['id'] ?>">
                             <div class="form-group has-validation">
                                 <label for="judul" class="text-dark">Judul Artikel</label>
-                                <input type="text" name="judul" class="form-control" id="judul" value="<?= $data['artikel']['judul'] ?>" aria-describedby="judul" placeholder="isi dengan judul artikel" required>
+                                <input type="text" name="judul" class="form-control" id="judul" value="<?= $data['artikel']['judul'] ?>" aria-describedby="judul" placeholder="isi dengan judul artikel">
                             </div>
                             <div class="form-group has-validation">
                                 <label for="artikel" class="text-dark">Artikel</label>
-                                <textarea class="form-control" name="deskripsi" id="artikel" placeholder="isi dengan artikel" rows="8" required><?= $data['artikel']['deskripsi'] ?></textarea>
+                                <textarea class="form-control" name="deskripsi" id="artikel" placeholder="isi dengan artikel" rows="8"><?= $data['artikel']['deskripsi'] ?></textarea>
                                 <div class="invalid-feedback">Mohon tuliskan artikel</div>
                             </div>
                             <div class="form-group has-validation">
@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="col-sm-9">
                                             <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="gambarInput" name="gambar" style="display: none;" required>
+                                                <input type="file" class="custom-file-input" id="gambarInput" name="gambar" style="display: none;">
                                                 <label class="btn text-white custom-file-label" style=" background-color: #2e21df; font-weight: 400;" for="gambarInput">Unggah Gambar</label>
                                             </div>
                                             <div class="invalid-feedback">Mohon unggah gambar</div>

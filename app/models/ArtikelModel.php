@@ -95,21 +95,51 @@ class ArtikelModel
         return $namaFileBaru;
     }
 
+    // public function ubahDataArtikel($data)
+    // {
+    //     $gambar = $this->upload();
+    //     if (!$gambar) {
+    //         return false;
+    //     }
+    //     $query = "UPDATE artikel SET judul = :judul, deskripsi = :deskripsi, gambar = :gambar WHERE id = :id";
+    //     $this->db->query($query);
+    //     $this->db->bind('judul', $data['judul']);
+    //     $this->db->bind('deskripsi', $data['deskripsi']);
+    //     $this->db->bind('gambar', $gambar);
+    //     $this->db->bind('id', $data['id']);
+    //     $this->db->execute();
+    //     return $this->db->rowCount();
+    // }
+
     public function ubahDataArtikel($data)
     {
+        $id = (int)$data['id'];
+        $gambarLama = $this->getArtikelById($id);
         $gambar = $this->upload();
         if (!$gambar) {
-            return false;
+            $gambar = $gambarLama['gambar'];
         }
-        $query = "UPDATE artikel SET judul = :judul, deskripsi = :deskripsi, gambar = :gambar WHERE id = :id";
+        $query = "UPDATE artikel SET judul = :judul, deskripsi = :deskripsi,  gambar = :gambar WHERE id = :id";
         $this->db->query($query);
-        $this->db->bind('judul', $data['judul']);
-        $this->db->bind('deskripsi', $data['deskripsi']);
-        $this->db->bind('gambar', $gambar);
+
+        if (!empty($data['judul'] || $data['deskripsi'])) {
+            $this->db->bind('judul', $data['judul']);
+            $this->db->bind('deskripsi', $data['deskripsi']);
+        } else {
+            $this->db->bind('judul', 'judul', PDO::PARAM_STR);
+            $this->db->bind('deskripsi', 'deskripsi', PDO::PARAM_STR);
+        }
+
+        if ($_FILES['gambar']['name'] != NULL) {
+            $this->db->bind('gambar', $gambar);
+        } else {
+            $this->db->bind('gambar', $gambarLama['gambar'], PDO::PARAM_STR);
+        }
         $this->db->bind('id', $data['id']);
         $this->db->execute();
         return $this->db->rowCount();
     }
+
 
     public function hapusDataArtikel($id)
     {
