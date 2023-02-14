@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 04, 2023 at 10:40 AM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.1
+-- Host: localhost:3306
+-- Generation Time: Feb 14, 2023 at 02:14 PM
+-- Server version: 10.4.18-MariaDB
+-- PHP Version: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -39,13 +39,14 @@ CREATE TABLE `artikel` (
 --
 
 INSERT INTO `artikel` (`id`, `judul`, `deskripsi`, `gambar`) VALUES
-(1, 'Kucing hitam membawa sial?', 'Asal usul takhayul tentang kucing hitam dikaitkan dengan kemalangan dan kemalangan datang dari zaman dahulu. Dalam mitologi Kristen, kucing hitam dianggap sebagai makhluk yang dikendalikan oleh iblis dan sering dikaitkan dengan kejadian buruk. Dalam mitologi Inggris, kucing hitam dianggap sebagai pembawa keberuntungan buruk. Namun, dalam budaya lain seperti Cina dan Jepang, kucing hitam dianggap sebagai simbol keberuntungan.Beberapa teori menyatakan bahwa keyakinan ini berasal dari persekutuan kucing dengan dunia kepercayaan pagan, di mana kucing dianggap sebagai makhluk yang dapat menghubungkan dunia manusia dengan dunia roh. Kucing juga dianggap sebagai pelindung rumah dari roh jahat dan kemalangan. Namun, faktanya, kucing hitam sama seperti kucing lainnya dan tidak lebih atau kurang berbahaya atau beruntung. Beberapa orang mungkin merasa tidak nyaman dengan kucing hitam karena mitos atau karena warna kulit yang unik, tetapi ini tidak ada hubungannya dengan karakter atau perilaku kucing itu sendiri.', NULL),
-(2, 'Duduk di atas bantal, bisulan?', 'Ada beberapa teori yang menyatakan bahwa duduk di atas bantal dapat menyebabkan bisulan. Namun, tidak ada bukti ilmiah yang kuat yang mendukung afirmasi ini. Faktor lain seperti kondisi kulit dan hygiene dapat lebih mempengaruhi munculnya bisulan daripada duduk di atas bantal. Namun, jika seseorang merasa nyaman dengan duduk di atas bantal atau jika itu membantu dalam mengurangi nyeri pinggul atau punggung, tidak ada alasan untuk menghindarinya.', NULL),
+(1, 'Kucing hitam membawa sial?', 'Asal usul takhayul tentang kucing hitam dikaitkan dengan kemalangan dan kemalangan datang dari zaman dahulu. Dalam mitologi Kristen, kucing hitam dianggap sebagai makhluk yang dikendalikan oleh iblis dan sering dikaitkan dengan kejadian buruk. Dalam mitologi Inggris, kucing hitam dianggap sebagai pembawa keberuntungan buruk. Namun, dalam budaya lain seperti Cina dan Jepang, kucing hitam dianggap sebagai simbol keberuntungan.Beberapa teori menyatakan bahwa keyakinan ini berasal dari persekutuan kucing dengan dunia kepercayaan pagan, di mana kucing dianggap sebagai makhluk yang dapat menghubungkan dunia manusia dengan dunia roh. Kucing juga dianggap sebagai pelindung rumah dari roh jahat dan kemalangan. Namun, faktanya, kucing hitam sama seperti kucing lainnya dan tidak lebih atau kurang berbahaya atau beruntung. Beberapa orang mungkin merasa tidak nyaman dengan kucing hitam karena mitos atau karena warna kulit yang unik, tetapi ini tidak ada hubungannya dengan karakter atau perilaku kucing itu sendiri.', 'black cat.jpg'),
+(2, 'Duduk di atas bantal, bisulan?', 'Ada beberapa teori yang menyatakan bahwa duduk di atas bantal dapat menyebabkan bisulan. Namun, tidak ada bukti ilmiah yang kuat yang mendukung afirmasi ini. Faktor lain seperti kondisi kulit dan hygiene dapat lebih mempengaruhi munculnya bisulan daripada duduk di atas bantal. Namun, jika seseorang merasa nyaman dengan duduk di atas bantal atau jika itu membantu dalam mengurangi nyeri pinggul atau punggung, tidak ada alasan untuk menghindarinya.', 'course_1.jpg'),
 (21, 'ada apa denganmu', 'bukannya sesuatu hal', '63d9128feb76b.jpg'),
 (22, 'tolol', 'tolol', '63d91345a0af3.jpg'),
-(23, 'gg', 'ggg', '63d9135d216b7.png'),
-(24, 'naha atuh gagal', 'teuing atuh', '63d913da09eae.png'),
-(25, 'ggh', 'hjjj', '63db3d900b224.jpg');
+(26, 'Lorem ipsum dolor sit amet consectetur adipisicing elit', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', '63e5f5198aa2e.png'),
+(27, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', '63e6f466ce4e0.jpg'),
+(28, 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', 'Lorem ipsum dolor sit amet consectetur adipisicing elit.', '63e6f64b3b8f5.jpg'),
+(29, 'w', 'w', '63e6fddde1b5c.png');
 
 -- --------------------------------------------------------
 
@@ -147,7 +148,7 @@ ALTER TABLE `pertanyaan`
 -- AUTO_INCREMENT for table `artikel`
 --
 ALTER TABLE `artikel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `jawaban`

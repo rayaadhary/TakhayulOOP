@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/plugins/OwlCarousel2-2.2.1/animate.css">
     <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/main_styles.css">
     <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/responsive.css">
-    <?php if ($data['judul'] == 'Detail Artikel') {  ?>
+    <?php if ($data['judul'] == 'Detail Artikel' || $data['judul'] == 'Tentang') {  ?>
         <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/course.css">
         <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/course_responsive.css">
         <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/contact.css">
@@ -47,71 +47,129 @@
     .button:focus {
         outline: none;
     }
+
+    p {
+        color: black;
+    }
+
+    /* Preloader */
+    .preloader {
+        width: 100%;
+        height: 100%;
+        top: 0;
+        position: fixed;
+        z-index: 99999;
+        background: #fff;
+    }
+
+    .lds-ripple {
+        display: inline-block;
+        width: 64px;
+        height: 64px;
+        position: absolute;
+        top: calc(50% - 3.5px);
+        left: calc(50% - 3.5px);
+    }
+
+    .lds-ripple .lds-pos {
+        position: absolute;
+        border: 2px solid #2e21df;
+        opacity: 1;
+        border-radius: 50%;
+        animation: lds-ripple 1s cubic-bezier(0, 0.1, 0.5, 1) infinite;
+    }
+
+    .lds-ripple .lds-pos:nth-child(2) {
+        animation-delay: -0.5s;
+    }
+
+    @keyframes lds-ripple {
+        0% {
+            top: 28px;
+            left: 28px;
+            width: 0;
+            height: 0;
+            opacity: 0;
+        }
+
+        5% {
+            top: 28px;
+            left: 28px;
+            width: 0;
+            height: 0;
+            opacity: 1;
+        }
+
+        100% {
+            top: -1px;
+            left: -1px;
+            width: 58px;
+            height: 58px;
+            opacity: 0;
+        }
+    }
 </style>
 
 <body>
-    <!-- Header -->
-    <!-- Header Content -->
-    <div class="header_container">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="header_content d-flex flex-row align-items-center justify-content-start">
-                        <div class="logo_container mr-auto">
-                            <a href="<?= BASEURL; ?>">
-                                <div class="logo_text">Takhayul</div>
-                            </a>
-                        </div>
-                        <nav class="main_nav_contaner">
-                            <ul class="main_nav">
-                                <li class="<?= ($data['judul'] == 'Home') ? 'active' : '' ?>">
-                                    <a href="<?= BASEURL; ?>">Home</a>
-                                </li>
-                                <li class="<?= ($data['judul'] == 'Quiz' || $data['judul'] == 'Hasil Quiz') ? 'active' : '' ?>">
-                                    <a href="<?= BASEURL; ?>/quiz">Quiz</a>
-                                </li>
-                                <li class="<?= ($data['judul'] == 'Artikel' || $data['judul'] == 'Detail Artikel' || $data['judul'] == 'Form Tambah Artikel' || $data['judul'] == 'Form Ubah Artikel') ? 'active' : '' ?>">
-                                    <a href="<?= BASEURL; ?>/artikel">Artikel</a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <div class="ml-auto text-right">
-                            <!-- <div class="header_search">
-                                <div class="search_form_container">
-                                    <form action="#" id="search_form" class="search_form trans_400">
-                                        <input type="search" class="header_search_input trans_400" placeholder="Type for Search" required="required">
-                                        <div class="search_button">
-                                            <i class="fa fa-search" aria-hidden="true"></i>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div> -->
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
 
-                            <?php if (isset($_SESSION['login'])) { ?>
-                                <div class="nav-item dropdown">
-                                    <a class="nav-link" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <!-- <img src="<?= BASEURL; ?>/images/instructor_1.jpg" alt="user" class="rounded-circle" width="40"> -->
-                                        <span class="ml-2 d-none d-lg-inline-block text-dark"><span><?= isset($_SESSION['nama']) ? $_SESSION['nama'] : ''  ?> <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-center user-dd animated">
-                                        <a class="dropdown-item log-out" href="<?= BASEURL; ?>/User/logout">
-                                            <i class="fa fa-sign-out" aria-hidden="true"></i>
-                                            Logout
+    <div class="super_container">
+        <!-- Header Content -->
+        <div class="header_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="header_content d-flex flex-row align-items-center justify-content-start">
+                            <div class="logo_container mr-auto">
+                                <a href="<?= BASEURL; ?>">
+                                    <div class="logo_text">Takhayul</div>
+                                </a>
+                            </div>
+                            <nav class="main_nav_contaner">
+                                <ul class="main_nav">
+                                    <li class="<?= ($data['judul'] == 'Home' || $data['judul'] == 'Tentang') ? 'active' : '' ?>">
+                                        <a href="<?= BASEURL; ?>">Home</a>
+                                    </li>
+                                    <li class="<?= ($data['judul'] == 'Quiz' || $data['judul'] == 'Hasil Quiz') ? 'active' : '' ?>">
+                                        <a href="<?= BASEURL; ?>/quiz">Quiz</a>
+                                    </li>
+                                    <li class="<?= ($data['judul'] == 'Artikel' || $data['judul'] == 'Detail Artikel' || $data['judul'] == 'Form Tambah Artikel' || $data['judul'] == 'Form Ubah Artikel') ? 'active' : '' ?>">
+                                        <a href="<?= BASEURL; ?>/artikel">Artikel</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="ml-auto text-right">
+                                <?php if (isset($_SESSION['login'])) { ?>
+                                    <div class="nav-item dropdown">
+                                        <a class="nav-link" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <!-- <img src="<?= BASEURL; ?>/images/instructor_1.jpg" alt="user" class="rounded-circle" width="40"> -->
+                                            <span class="ml-2 d-none d-lg-inline-block text-dark"><span><?= isset($_SESSION['nama']) ? $_SESSION['nama'] : ''  ?> <i class="fa fa-chevron-down" aria-hidden="true"></i></span>
                                         </a>
+                                        <div class="dropdown-menu dropdown-menu-center user-dd animated">
+                                            <a class="dropdown-item log-out" href="<?= BASEURL; ?>/User/logout">
+                                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                                Logout
+                                            </a>
+                                        </div>
                                     </div>
-                                </div>
-                            <?php } else { ?>
-                                <div class="user">
-                                    <a href="<?= BASEURL; ?>/user"><i class="fa fa-user" aria-hidden="true"></i></a>
-                                </div>
-                            <?php } ?>
+                                <?php } else { ?>
+                                    <div class="user">
+                                        <a href="<?= BASEURL; ?>/user"><i class="fa fa-user" aria-hidden="true"></i></a>
+                                    </div>
+                                <?php } ?>
 
-                            <div class="hamburger menu_mm">
-                                <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
+                                <div class="hamburger menu_mm">
+                                    <i class="fa fa-bars menu_mm" aria-hidden="true"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>

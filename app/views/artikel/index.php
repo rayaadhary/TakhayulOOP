@@ -10,6 +10,7 @@
 			<div class="text-start">
 				<a href="<?= BASEURL ?>/artikel/formTambahArtikel" class="btn text-white" style="background-color: #2e21df; font-weight: 400;"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Artikel</a>
 			</div>
+
 		<?php } ?>
 		<div class="row courses_row">
 			<!-- Course -->

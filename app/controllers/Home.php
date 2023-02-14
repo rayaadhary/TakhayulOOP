@@ -17,4 +17,12 @@ class Home extends Controller
     $this->view('home/index', $data);
     $this->view('template/footer');
   }
+
+  public function tentang()
+  {
+    $data['judul'] = 'Tentang';
+    $this->view('template/header', $data);
+    $this->view('home/tentang', $data);
+    $this->view('template/footer');
+  }
 }

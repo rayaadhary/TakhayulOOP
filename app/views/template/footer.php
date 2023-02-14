@@ -3,11 +3,16 @@
 				<div class="container">
 					<div class="row">
 						<div class="col">
-							<div class="copyright_content d-flex flex-md-row flex-column align-items-md-center align-items-center justify-content-center">
-								<div class="cr"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							<div class="copyright_content d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-start">
+								<div class="cr">
 									Copyright &copy;<script>
 										document.write(new Date().getFullYear());
-									</script>
+									</script> Sistem Aplikasi Takhayul
+								</div>
+								<div class="cr_right ml-md-auto">
+									<div class="footer_social">
+										<a class="cr_social_title" href="<?= BASEURL; ?>/home/tentang">Tentang</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -15,6 +20,7 @@
 				</div>
 			</div>
 		</footer>
+		</div>
 
 		<script src="<?= BASEURL; ?>/js/jquery-3.2.1.min.js"></script>
 		<script src="<?= BASEURL; ?>/styles/bootstrap4/popper.js"></script>
@@ -30,6 +36,10 @@
 		<script src="<?= BASEURL; ?>/js/js-logout.js"></script>
 		<script src="<?= BASEURL; ?>/js/contact.js"></script>
 
+		<!-- Preloader -->
+		<script>
+			$(".preloader").fadeOut();
+		</script>
 		</body>
 
 		</html>

@@ -1,12 +1,12 @@
 <div class="super_container">
 	<!-- Home -->
 	<div class="home">
-		<div class="home_background" style="background-image: url(images/index_background.jpg);"></div>
+		<div class="home_background" style="background-image: url(images/ball&book.jpg);"></div>
 		<div class="home_content">
 			<div class="container">
 				<div class="row">
 					<div class="col text-center">
-						<h1 class="home_title">Kuis Takhayul</h1>
+						<h1 class="home_title text-white">Kuis Takhayul</h1>
 						<div class="home_button trans_200"><a href="<?= BASEURL; ?>/quiz">mulai</a></div>
 					</div>
 				</div>
