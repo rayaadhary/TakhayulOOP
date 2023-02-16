@@ -1,7 +1,7 @@
 <div class="super_container">
 	<!-- Home -->
 	<div class="home">
-		<div class="home_background" style="background-image: url(images/ball&book.jpg);"></div>
+		<div class="home_background" style="background-image: url(<?= BASEURL ?>/images/ball&book.jpg);"></div>
 		<div class="home_content">
 			<div class="container">
 				<div class="row">
