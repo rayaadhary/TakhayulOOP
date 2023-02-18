@@ -20,6 +20,12 @@
         <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/contact.css">
         <link rel="stylesheet" type="text/css" href="<?= BASEURL; ?>/styles/contact_responsive.css">
     <?php } ?>
+    <script src="https://cdn.tiny.cloud/1/0461z5w9ownxycci6d0pikmybskmenwzp0tmymfpngwfi4fv/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea'
+        });
+    </script>
 </head>
 <style>
     /* CUSTOM */
